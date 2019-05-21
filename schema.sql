@@ -38,6 +38,8 @@ CREATE TABLE wells (
   wellName VARCHAR(200) NOT NULL,
   apiNumber VARCHAR(40) UNIQUE NOT NULL,
   wellType VARCHAR(40) NOT NULL,
+  dateCompleted DATETIME NOT NULL,
+  dateInactive DATETIME,
   FOREIGN KEY (id) REFERENCES lease,
   PRIMARY KEY (id)
 );
