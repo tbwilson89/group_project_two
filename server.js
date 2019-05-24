@@ -23,7 +23,10 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
+<<<<<<< HEAD
 require("./routes/authentication")(app);
+=======
+>>>>>>> 495b0fcf2c25f8cffebbfe11c75962caf2537f65
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
