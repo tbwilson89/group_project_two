@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Dragont1659",
-    "database": "exampledb",
+    "database": "rrc_db",
     "host": "localhost",
     "dialect": "mysql"
   },
