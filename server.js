@@ -2,6 +2,9 @@ require("dotenv").config();
 var express = require("express");
 var passport = require('passport')
 var exphbs = require("express-handlebars");
+var Handlebars = require('handlebars');
+var HandlebarsIntl = require('handlebars-intl');
+HandlebarsIntl.registerWith(Handlebars);
 
 var db = require("./models");
 
