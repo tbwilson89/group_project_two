@@ -1,5 +1,3 @@
-
-
 $("#notify-toggle").on("click", function () {
     if ($("#notify-box").hasClass("closed")) {
         $("#notify-box").removeClass('closed');
