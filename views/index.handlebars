@@ -1,4 +1,21 @@
    
+    {{#each bagel}}
+    {{this.operatorName}}<br>
+    {{#each this.OpFields}}
+    {{this.fieldName}}<br>
+        {{#each this.Leases}}
+        {{this.leaseName}}<br>
+            {{#each this.Wells}}
+            {{this.wellName}}<br>
+                {{#each this.Tests}}
+                    {{formatDate this.dueDate day="numeric" month="long" year="numeric"}}<br>
+                    {{this.Filing.filingName}}<br>
+                {{/each}}
+            {{/each}}
+        {{/each}}
+    {{/each}}
+{{/each}}
+
     <div class="grid-container">
 
         <!-- HEADER -->
@@ -30,28 +47,6 @@
             </li>
         </ol>
     </nav>
-
-    {{#each bagel}}
-    {{this.operatorName}}<br>
-    {{#each this.OpFields}}
-    {{this.fieldName}}<br>
-        {{#each this.Leases}}
-        {{this.leaseName}}<br>
-            {{#each this.Wells}}
-            {{this.wellName}}<br>
-                {{#each this.Tests}}
-                    {{formatDate this.dueDate day="numeric" month="long" year="numeric"}}<br>
-                    {{this.Filing.filingName}}<br>
-                {{/each}}
-            {{/each}}
-        {{/each}}
-    {{/each}}
-{{/each}}
-
-
-
-
-
 
             <!-- OPERATOR -->
             <div class="container border rounded reg-form">
