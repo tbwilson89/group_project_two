@@ -8,7 +8,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
   app.get("/api/operator", function(req, res) {
     db.Tests.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -33,14 +32,14 @@ module.exports = function(app) {
     }).then(function(result) {
       res.json(result);
     });
-    
+
   });
 
   app.get("/api/bagel/:id", function(req,res) {
     db.Operator.findAll({
       where: {authID: req.params.id},
       include: [
-        { 
+        {
           model: db.OpField,
           include: [
             {
@@ -53,7 +52,7 @@ module.exports = function(app) {
                       model: db.Tests,
                       include: [
                        {
-                         model: db.Filings 
+                         model: db.Filings
                        }
                       ]
                     }
@@ -66,7 +65,7 @@ module.exports = function(app) {
       ]
     }).then(result => {
         res.json(result);
-    }); 
+    });
 
 });
 
@@ -110,8 +109,6 @@ module.exports = function(app) {
     });
   });
 
-=======
->>>>>>> 434241c2ae1ca50889c196752540a33fbca5e263
   // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {

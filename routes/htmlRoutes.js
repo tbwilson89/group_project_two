@@ -11,13 +11,12 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
   //Load Accordion
   app.get("/accordion", function(req, res) {
     db.Operator.findAll({
       where: {authID: 1},
       include: [
-        { 
+        {
           model: db.OpField,
           include: [
             {
@@ -41,7 +40,7 @@ module.exports = function(app) {
           ]
         }
       ]
-    }).then(function(results) { 
+    }).then(function(results) {
       // res.json(results);
       res.render("accordion", {
         bagel: results
@@ -49,8 +48,6 @@ module.exports = function(app) {
     });
   });
 
-=======
->>>>>>> 434241c2ae1ca50889c196752540a33fbca5e263
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
