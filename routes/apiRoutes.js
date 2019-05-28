@@ -8,7 +8,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
   app.get("/api/operator", function(req, res) {
     db.Tests.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -110,8 +109,6 @@ module.exports = function(app) {
     });
   });
 
-=======
->>>>>>> 434241c2ae1ca50889c196752540a33fbca5e263
   // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {

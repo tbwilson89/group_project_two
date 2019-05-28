@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
       leaseID: DataTypes.INTEGER,
       wellID: DataTypes.INTEGER,
       dueDate: DataTypes.DATE,
-      createdAt: { s
+      createdAt: { 
         type: DataTypes.DATE,
         field: 'beginTime',
         defaultValue: sequelize.literal('NOW()')
