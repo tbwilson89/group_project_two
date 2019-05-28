@@ -11,6 +11,7 @@ module.exports = function(app) {
     });
   });
 
+<<<<<<< HEAD
   //Load Accordion
   app.get("/accordion", function(req, res) {
     db.Operator.findAll({
@@ -48,6 +49,8 @@ module.exports = function(app) {
     });
   });
 
+=======
+>>>>>>> 434241c2ae1ca50889c196752540a33fbca5e263
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
@@ -61,5 +64,4 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
-
 };

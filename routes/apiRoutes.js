@@ -2,12 +2,13 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/testDue", function(req, res) {
-    db.Tests.findAll({}).then(function(dbExamples) {
+  app.get("/api/examples", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
 
+<<<<<<< HEAD
   app.get("/api/operator", function(req, res) {
     db.Tests.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -109,16 +110,18 @@ module.exports = function(app) {
     });
   });
 
+=======
+>>>>>>> 434241c2ae1ca50889c196752540a33fbca5e263
   // Create a new example
-  app.post("/api/operator", function(req, res) {
-    db.Operator.create(req.body).then(function(dbExample) {
+  app.post("/api/examples", function(req, res) {
+    db.Example.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Filings.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
   });

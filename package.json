@@ -12,12 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "express": "^4.17.0",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "express-hbs": "^2.1.2",
-    "fill-pdf": "^1.1.0",
-    "handlebars-dateformat": "^1.1.1",
-    "handlebars-intl": "^1.1.2",
     "mysql2": "^1.6.4",
     "nexmo": "^2.4.1",
     "nightmare": "^3.0.2",
@@ -25,10 +21,7 @@
     "nodemailer": "^6.1.1",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
-    "requirejs": "^2.3.6",
-    "sequelize": "^4.41.2",
-    "sqlite3": "^4.0.8",
-    "tedious": "^6.1.1"
+    "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "chai": "^4.1.2",
