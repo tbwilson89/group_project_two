@@ -1,3 +1,112 @@
-.list-group-item {
-  line-height: 2.5;
+/* G E N E R A L */
+* { box-sizing: border-box; }
+
+html, body {
+  background: linear-gradient(rgba(11, 12, 16, .9), rgba(11, 12, 16, .9)), url("../images/oil-well-2.jpg") no-repeat fixed center; 
+  background-size: cover;
+  color: #C5C6C7;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
 }
+
+h1 {
+  font-family: 'Kanit', sans-serif;
+  display: inline-block;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-template-areas: "header header" "left right" "footer footer";
+  grid-column-gap: 10px;
+}
+
+.left, #notify-box, .login-box, .footing { padding: 1.2rem; }
+
+/* H E A D E R  &  F O O T E R */
+.header {
+  grid-area: header;
+  padding: .75rem 2rem;
+  background-color: #0B0C10;
+  display: flex;
+  z-index: 1;
+}
+
+.footer { 
+  grid-area: footer;
+  text-align: center;
+}
+
+.logomark { height: 35px; }
+
+.header-btn {
+  margin-right: 1.2rem;
+  margin-left: auto;
+}
+
+/* S I D E B A R */
+#notify-box {
+  grid-area: right;
+  background-color: #1F2833;
+  border-left: 5px solid #45A29E;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  z-index: 0;
+}
+
+.slider {
+  overflow-y: scroll;
+  height:100%;
+  -webkit-transition:-webkit-transform .3s ease;
+      -moz-transition:   -moz-transform .3s ease;
+        -ms-transition:    -ms-transform .3s ease;
+            transition:        transform .3s ease;
+  -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      -ms-box-sizing:border-box;
+          box-sizing:border-box;
+}
+
+.slider.opened { 
+  -webkit-transform: translate(0, 0%);
+     -moz-transform: translate(0, 0%);
+      -ms-transform: translate(0, 0%);
+          transform: translate(0, 0%);
+}
+
+.slider.closed {
+  -webkit-transform: translate(0, -100%);
+     -moz-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+
+.fa-file-alt { padding-right: 10px; }
+
+/* M A I N */
+.left { 
+  grid-area: left; 
+  padding-left: 2rem;
+}
+
+.reg-form {
+  background-color: #0B0C10;
+  padding: 1rem;
+  margin: 2rem auto;
+}
+
+/* M O B I L E */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'header header' 'header right-b' 'right-a right-a' 'left left' 'footer footer';
+  }
+}
+
+/* STRIKING AND SIMPLE
+#0B0C10 - almost black
+#1F2833 - blue gray
+#C5C6C7 - light gray
+#66FCF1 - light teal
+#45A29E - dark teal */
