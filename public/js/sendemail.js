@@ -6,7 +6,7 @@ var j = schedule.scheduleJob(date, function(){
   console.log('The world is going to end today.');
 
     // async..await is not allowed in global scope, must use a wrapper
-    async function main(){
+    async function main(){ 
 
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing

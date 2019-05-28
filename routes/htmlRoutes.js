@@ -40,7 +40,7 @@ module.exports = function(app) {
           ]
         }
       ]
-    }).then(function(results) {
+    }).then(function(results) { 
       // res.json(results);
       res.render("accordion", {
         bagel: results

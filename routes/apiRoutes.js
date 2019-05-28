@@ -52,7 +52,7 @@ module.exports = function(app) {
                       model: db.Tests,
                       include: [
                        {
-                         model: db.Filings
+                         model: db.Filings 
                        }
                       ]
                     }

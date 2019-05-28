@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false,
       }, 
-      fieldNumber: {
+      fieldNumber: { 
           type: DataTypes.STRING,
           allowNull: false,
           unique: true

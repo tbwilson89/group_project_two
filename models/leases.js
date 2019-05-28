@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
     },
     fieldID: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER, 
       allowNull: false
   },
   createdAt: {

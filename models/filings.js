@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
           foreignKey: {
             name: 'testID',
             allowNull: false
-          }
+          } 
         });
       };
 
