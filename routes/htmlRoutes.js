@@ -11,43 +11,6 @@ module.exports = function(app) {
     });
   });
 
-  //Load Accordion
-  app.get("/accordion", function(req, res) {
-    db.Operator.findAll({
-      where: {authID: 1},
-      include: [
-        { 
-          model: db.OpField,
-          include: [
-            {
-              model: db.Lease,
-              include: [
-                {
-                  model: db.Wells,
-                  include: [
-                    {
-                      model: db.Tests,
-                      include: [
-                       {
-                         model: db.Filings
-                       }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }).then(function(results) {
-      // res.json(results);
-      res.render("accordion", {
-        bagel: results
-      });
-    });
-  });
-
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
@@ -61,5 +24,4 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
-
 };
