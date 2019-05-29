@@ -2,11 +2,8 @@ require("dotenv").config();
 var moment = require('moment');
 var express = require("express");
 var passport = require('passport');
-<<<<<<< HEAD
-=======
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
->>>>>>> e0c233817dba9c1f0d73f47ed53dc022e570b9ab
 var exphbs = require("express-handlebars");
 var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');

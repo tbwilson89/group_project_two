@@ -97,6 +97,10 @@ p {
 }
 
 /* S I D E B A R */
+#notify-container {
+  overflow: hidden;
+}
+
 #notify-box {
   grid-area: right;
   background-color: #1F2833;
@@ -128,10 +132,10 @@ p {
 }
 
 .slider.closed {
-  -webkit-transform: translate(0, -100%);
-     -moz-transform: translate(0, -100%);
-      -ms-transform: translate(0, -100%);
-          transform: translate(0, -100%);
+  -webkit-transform: translate(100%, 0);
+     -moz-transform: translate(100%, 0);
+      -ms-transform: translate(100%, 0);
+          transform: translate(100%, 0);
 }
 
 .fa-file-alt { padding-right: 10px; }
