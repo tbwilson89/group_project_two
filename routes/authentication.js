@@ -13,10 +13,10 @@ module.exports = function(app) {
       console.log(refreshToken)
       console.log(profile)
       console.log(done)
-      return done(null, profile)
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return done(err, user);
-      // });
+      // return done(null, profile)
+      Users.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
     }
   ));
 
