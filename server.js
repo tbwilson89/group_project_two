@@ -3,8 +3,6 @@ var express = require("express");
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
-var cookieParser = require('cookie-parser');
-var cookieSession = require('cookie-session');
 var exphbs = require("express-handlebars");
 var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
@@ -21,8 +19,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENTID,
-  clientSecret: process.env.GOOGLE_CLIENTSECRET,
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/google/callback",
   scope: ['email']
 },
