@@ -59,8 +59,8 @@ module.exports = function(app) {
     passport.authenticate('google', { failureRedirect: '/' }),
     function(req, res) {
       console.log('testing')
-      res.render('loggedin')
-      // res.redirect('/loggedin');
+      // res.render('loggedin')
+      res.redirect('/loggedin');
     }
   )
 
