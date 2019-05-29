@@ -1,4 +1,5 @@
 require("dotenv").config();
+var moment = require('moment');
 var express = require("express");
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -8,12 +9,12 @@ var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 HandlebarsIntl.registerWith(Handlebars);
 
-Handlebars.registerHelper("has_passed", function(dateString) {
-  if(moment(dateString).isAfter(moment().add(60, 'days').calendar())){
-    return false;
+Handlebars.registerHelper("has_passed", function(dateString, opts) {
+  if(moment(dateString).isBefore(moment().add(60, 'days').calendar())){
+    return opts.fn(this)
   } else {
-    return true;
-    }
+    return opts.inverse(this);
+  }
 });
 
 var db = require("./models");

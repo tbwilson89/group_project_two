@@ -156,10 +156,12 @@
 
   <!-- RIGHT - NOTIFICATIONS -->
   <section class="slider closed" id="notify-box">
-      <strong>NOTIFICATIONS</strong>
-      <div><i class="fas fa-file-alt"></i><span> Inspection report due</span></div>
-      <div><i class="fas fa-file-alt"></i><span> Sample 2</span></div>
-      <div><i class="fas fa-file-alt"></i><span> Sample 3</span></div>
+      <strong>TEST DUE IN THE NEXT 60 DAYS</strong>
+        <hr>
+      {{#each bagel}}{{#each this.OpFields}}{{#each this.Leases}}{{#each this.Wells}}{{#each this.Tests}}{{#has_passed this.dueDate}}
+      {{../../this.leaseName}}
+      <div><i class="fas fa-file-alt"></i><span><a href="test{{this.testID}}"> {{this.Filing.filingName}} - {{formatDate this.dueDate}}</a></span></div><br>
+      {{/has_passed}}{{/each}}{{/each}}{{/each}}{{/each}}{{/each}}
   </section>
 
   <!-- FOOTER -->
