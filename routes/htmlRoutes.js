@@ -16,7 +16,7 @@ module.exports = function(app) {
     db.Operator.findAll({
       where: {authID: 1},
       include: [
-        { 
+        {
           model: db.OpField,
           include: [
             {
@@ -40,7 +40,7 @@ module.exports = function(app) {
           ]
         }
       ]
-    }).then(function(results) { 
+    }).then(function(results) {
       // res.json(results);
       res.render("accordion", {
         bagel: results
@@ -56,6 +56,10 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.get("/loggedin", function(req, res) {
+    res.render("loggedin");
+  })
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

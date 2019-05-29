@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
       leaseID: DataTypes.INTEGER,
       wellID: DataTypes.INTEGER,
       dueDate: DataTypes.DATE,
-      createdAt: { 
+      createdAt: {
         type: DataTypes.DATE,
         field: 'beginTime',
         defaultValue: sequelize.literal('NOW()')
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: sequelize.literal('NOW()')
     }
     });
-    
+
     Tests.associate = function(models) {
       Tests.belongsTo(models.Wells, {
         foreignKey: {
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     };
 
     Tests.associate = function(models) {
-      Tests.belongsTo(models.Filings, {    
+      Tests.belongsTo(models.Filings, {
           foreignKey: {
               name: 'testID'
           }
@@ -35,5 +35,3 @@ module.exports = function(sequelize, DataTypes) {
 
     return Tests;
   };
-
-  
