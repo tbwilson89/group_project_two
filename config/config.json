@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "bsc0BSC0",
+    "password": "",
     "database": "rrc_db",
     "host": "localhost",
     "dialect": "mysql"
