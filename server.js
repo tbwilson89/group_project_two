@@ -1,6 +1,8 @@
 require("dotenv").config();
 var express = require("express");
-var passport = require('passport')
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var session = require('express-session')
 var exphbs = require("express-handlebars");
 var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
@@ -16,10 +18,38 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// app.use(require('express-session')({
-//   secret:
-// }))
+passport.use(new GoogleStrategy({
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/google/callback",
+  scope: ['email']
+},
+function(accessToken, refreshToken, profile, done) {
+  var userEmail = profile.emails[0].value
+  var username = userEmail.slice(0, userEmail.indexOf('@'))
+  db.Users.findOrCreate({
+    where: {
+      userName: username,
+      email: userEmail,
+      googleId: profile.id
+    }
+  }).spread(function (userResult, created) {
+    console.log(userResult.dataValues.id)
+    if(created){
+      return done(null, userResult.dataValues.id)
+    } else {
+      return done(null, userResult.dataValues.id);
+    }
+  }).catch(function(err) {
+    console.log(err)
+  })
+}))
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -40,10 +70,20 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//Check if user is logged in
+const accessProtectionMiddleware = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
+
+
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/authentication")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes")(app, accessProtectionMiddleware);
+require("./routes/authentication")(app, accessProtectionMiddleware);
+require("./routes/htmlRoutes")(app, accessProtectionMiddleware);
 
 var syncOptions = { force: false };
 

@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "zoecayxav314159",
+=======
+    "password": "",
+>>>>>>> 66abfedc1d62f20f45d49a1712ff478cf915d741
     "database": "rrc_db",
     "host": "localhost",
     "dialect": "mysql"

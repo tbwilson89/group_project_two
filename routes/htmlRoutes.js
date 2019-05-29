@@ -1,6 +1,7 @@
 var db = require("../models");
+var passport = require('passport');
 
-module.exports = function(app) {
+module.exports = function(app, accessProtectionMiddleware) {
   // Load index page
   app.get("/", function(req, res) {
     db.Operator.findAll({
@@ -84,11 +85,11 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/loggedin", function(req, res) {
+  app.get("/loggedin", accessProtectionMiddleware, function(req, res) {
     db.Operator.findAll({
       where: {authID: 1},
       include: [
-        { 
+        {
           model: db.OpField,
           include: [
             {
@@ -112,13 +113,19 @@ module.exports = function(app) {
           ]
         }
       ]
-    }).then(function(results) { 
+    }).then(function(results) {
       // res.json(results);
       res.render("loggedin", {
         bagel: results
       });
     });
   });
+
+  app.get('/logout', function(req,res){
+    req.logout();
+    req.user = null;
+    res.redirect('/')
+  })
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
