@@ -32,14 +32,14 @@ module.exports = function(app) {
     }).then(function(result) {
       res.json(result);
     });
-    
+
   });
 
   app.get("/api/bagel/:id", function(req,res) {
     db.Operator.findAll({
       where: {authID: req.params.id},
       include: [
-        { 
+        {
           model: db.OpField,
           include: [
             {
@@ -52,7 +52,7 @@ module.exports = function(app) {
                       model: db.Tests,
                       include: [
                        {
-                         model: db.Filings 
+                         model: db.Filings
                        }
                       ]
                     }
@@ -65,7 +65,7 @@ module.exports = function(app) {
       ]
     }).then(result => {
         res.json(result);
-    }); 
+    });
 
 });
 
