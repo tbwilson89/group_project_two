@@ -2,7 +2,7 @@
 
   <!-- HEADER -->
   <header class="header">
-      <img class="logomark" src="/images/WR_combomark2.png">
+      <img class="logomark" src="/images/WR_combomark.png">
       <button class="btn btn-outline-info header-btn" id="notify-toggle"><span class="fas fa-bell btn-notifications"></span></button>
       <a href="./auth/google"><button class="btn btn-outline-info">Log In</button></a>
   </header>
@@ -10,132 +10,6 @@
   <!-- LEFT -->
   <section class="left">
 
-      <!-- OPERATOR -->
-      <div class="container border rounded reg-form">
-          OPERATOR
-          <form class="form-inline">
-              <label for="op-name" class="mr-sm-2">Operator Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="op-name">
-              <label for="op-number" class="mr-sm-2">Operator Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="op-number">
-              <label for="op-address" class="mr-sm-2">Operator Address:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="op-address">
-              <label for="op-phone" class="mr-sm-2">Operator Phone:</label>
-                  <input type="tel" class="form-control-sm mb-2 mr-sm-2" id="op-phone">
-              <label for="op-bday" class="mr-sm-2">Operator Birthday:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="op-bday">
-              <label for="h15-rules" class="mr-sm-2">H15 Rules:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="h15-rules">
-              <button type="submit" class="btn btn-primary mb-2" id="submit-btn" data-reg="operator">Submit</button>
-          </form>
-      </div>
-      <br>
-
-      <!-- MEMBER -->
-      <div class="container border rounded reg-form">
-          MEMBER
-          <form class="form-inline">
-              <label for="mem-name" class="mr-sm-2">Member Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="mem-name">
-              <label for="mem-title" class="mr-sm-2">Member Title:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="mem-title">
-              <label for="op-id" class="mr-sm-2">Operator ID:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="op-id">
-              <button type="submit" class="btn btn-primary mb-2" data-reg="member">Submit</button>
-          </form>
-      </div>
-      <br>
-
-      <!-- FIELD -->
-      <div class="container border rounded reg-form">
-          FIELD
-          <form class="form-inline">
-              <label for="field-name" class="mr-sm-2">Field Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="field-name">
-              <label for="field-number" class="mr-sm-2">Field Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="field-number">
-              <label for="field-rules" class="mr-sm-2">Field Rules:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="op-id">
-              <label for="op-id2" class="mr-sm-2">Operator ID:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="op-id2">
-              <button type="submit" class="btn btn-primary mb-2" data-reg="field">Submit</button>
-          </form>
-      </div>
-      <br>
-
-      <!-- LEASE -->
-      <div class="container border rounded reg-form">
-          LEASE
-          <form class="form-inline">
-              <label for="dist-number" class="mr-sm-2">District Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="dist-number">
-              <label for="county-number" class="mr-sm-2">Field Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="county-number">
-              <label for="lease-name" class="mr-sm-2">Lease Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="lease-name">
-              <label for="lease-number" class="mr-sm-2">Lease Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="lease-number">
-              <label for="field-id" class="mr-sm-2">Field ID:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="field-id">
-              <button type="submit" class="btn btn-primary mb-2" data-reg="lease">Submit</button>
-          </form>
-      </div>
-      <br>
-
-      <!-- WELL -->
-      <div class="container border rounded reg-form">
-          WELL
-          <form class="form-inline">
-              <label for="well-name" class="mr-sm-2">Well Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="well-name">
-              <label for="api-number" class="mr-sm-2">API Number:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="api-number">
-              <label for="well-type" class="mr-sm-2">Well Type:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-type">
-              <label for="date-completed" class="mr-sm-2">Date Completed:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="date-completed">
-              <label for="date-inactive" class="mr-sm-2">Date Inactive:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="date-inactive">
-              <label for="h10-rules" class="mr-sm-2">H10 Rules:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="h10-rules">
-              <label for="lease-id" class="mr-sm-2">Lease ID:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="lease-id">
-              <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
-          </form>
-      </div>
-      <br>
-
-      <!-- FILING -->
-      <div class="container border rounded reg-form">
-          FILING
-          <form class="form-inline">
-              <label for="filing-name" class="mr-sm-2">Filing Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="filing-name">
-              <label for="well-type2" class="mr-sm-2">Well Type:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-type2">
-              <label for="frequency" class="mr-sm-2">Filing Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="frequency">
-              <label for="contact-name" class="mr-sm-2">Contact Name:</label>
-                  <input type="text" class="form-control-sm mb-2 mr-sm-2" id="contact-name">
-              <label for="contact-number" class="mr-sm-2">Contact Number:</label>
-                  <input type="tel" class="form-control-sm mb-2 mr-sm-2" id="contact-number">
-              <label for="due-date" class="mr-sm-2">Due Date:</label>
-                  <input type="date" class="form-control-sm mb-2 mr-sm-2" id="due-date">
-              <label for="well-id" class="mr-sm-2">Well ID:</label>
-                  <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-id">
-              <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
-          </form>
-      </div>
-      <br>
-
-  </section>
-
-  <!-- RIGHT - NOTIFICATIONS -->
-  <section class="slider closed" id="notify-box">
-      <strong>NOTIFICATIONS</strong>
-      <div><i class="fas fa-file-alt"></i><span> Inspection report due</span></div>
-      <div><i class="fas fa-file-alt"></i><span> Sample 2</span></div>
-      <div><i class="fas fa-file-alt"></i><span> Sample 3</span></div>
   </section>
 
   <!-- FOOTER -->
