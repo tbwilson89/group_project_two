@@ -58,8 +58,40 @@ module.exports = function(app) {
   });
 
   app.get("/loggedin", function(req, res) {
-    res.render("loggedin");
-  })
+    db.Operator.findAll({
+      where: {authID: 1},
+      include: [
+        { 
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                        {
+                          model: db.Filings
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) { 
+      // res.json(results);
+      res.render("loggedin", {
+        bagel: results
+      });
+    });
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
