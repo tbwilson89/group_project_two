@@ -8,18 +8,18 @@
   </header>
   
   <!-- LEFT -->
-  <section class="left">
+  <section class="left container">
 
 
-            <!--ADD MODAL TRIGGERS-->
-        <div class="menu">
-        <div class="label">ADD</div>
-        <div class="spacer"></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
-        </div><br><br>
+    <!--ADD MODAL TRIGGERS-->
+    <div class="menu">
+      <div class="label">ADD</div>
+      <div class="spacer"></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
+    </div><br><br>
 
     {{!-- SELECTION --}}
     <ul>
@@ -46,8 +46,6 @@
         </li>
       {{/each}}
     </ul>
-
-    
 
     {{!-- <!-- MEMBER -->
     <div class="container border rounded reg-form">
@@ -90,13 +88,15 @@
   </section>
 
   <!-- RIGHT - NOTIFICATIONS -->
-  <section class="slider closed" id="notify-box">
+  <section id="notify-container">
+    <div class="slider closed" id="notify-box">
       <strong>TEST DUE IN THE NEXT 60 DAYS</strong>
         <hr>
       {{#each bagel}}{{#each this.OpFields}}{{#each this.Leases}}{{#each this.Wells}}{{#each this.Tests}}{{#has_passed this.dueDate}}
       {{../../this.leaseName}}
       <div><i class="fas fa-file-alt"></i><span><a href="test{{this.testID}}"> {{this.Filing.filingName}} - {{formatDate this.dueDate}} </a></span></div><br>
       {{/has_passed}}{{/each}}{{/each}}{{/each}}{{/each}}{{/each}}
+    </div>
   </section>
 
 {{!-- MODALS SECTION --}}
