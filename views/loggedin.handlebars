@@ -10,15 +10,18 @@
   <!-- LEFT -->
   <section class="left container">
 
-
     <!--ADD MODAL TRIGGERS-->
     <div class="menu">
-      <div class="label">ADD</div>
+      <div class="label">
+         <button class="btn btn-info">
+            ADD <i class="far fa-address-card"></i>
+         </button>
+      </div>
       <div class="spacer"></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addOperatorModal">Operator</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addFieldModal">Field</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addLeaseModal">Lease</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addWellModal">Well</button></span></div>
     </div><br><br>
 
     {{!-- SELECTION --}}
@@ -83,13 +86,16 @@
         </form>
     </div> --}}
 
-
-
   </section>
 
   <!-- RIGHT - NOTIFICATIONS -->
   <section id="notify-container">
     <div class="slider closed" id="notify-box">
+      <div class="notify-reminders">
+        <button class="btn btn-info"><i class="fas fa-mobile-alt"></i></button>
+        <button class="btn btn-info"><i class="far fa-envelope"></i></button>
+      </div>
+        <hr>
       <strong>TEST DUE IN THE NEXT 60 DAYS</strong>
         <hr>
       {{#each bagel}}{{#each this.OpFields}}{{#each this.Leases}}{{#each this.Wells}}{{#each this.Tests}}{{#has_passed this.dueDate}}
@@ -100,6 +106,7 @@
   </section>
 
 {{!-- MODALS SECTION --}}
+
 <!-- Add Operator -->
 <div id="addOperatorModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
