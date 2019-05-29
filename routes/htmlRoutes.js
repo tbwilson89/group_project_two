@@ -14,54 +14,9 @@ module.exports = function(app) {
   //Load Accordion
   app.get("/accordion", function(req, res) {
     db.Operator.findAll({
-      where: {authID: 1},
+      where: { authID: 1 },
       include: [
         {
-          model: db.OpField,
-          include: [
-            {
-              model: db.Lease,
-              include: [
-                {
-                  model: db.Wells,
-                  include: [
-                    {
-                      model: db.Tests,
-                      include: [
-                       {
-                         model: db.Filings
-                       }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }).then(function(results) {
-      // res.json(results);
-      res.render("accordion", {
-        bagel: results
-      });
-    });
-  });
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
-
-  app.get("/loggedin", function(req, res) {
-    db.Operator.findAll({
-      where: {authID: 1},
-      include: [
-        { 
           model: db.OpField,
           include: [
             {
@@ -85,7 +40,43 @@ module.exports = function(app) {
           ]
         }
       ]
-    }).then(function(results) { 
+    }).then(function(results) {
+      // res.json(results);
+      res.render("accordion", {
+        bagel: results
+      });
+    });
+  });
+
+  app.get("/loggedin", function(req, res) {
+    db.Operator.findAll({
+      where: { authID: 1 },
+      include: [
+        {
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                        {
+                          model: db.Filings
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) {
       // res.json(results);
       res.render("loggedin", {
         bagel: results

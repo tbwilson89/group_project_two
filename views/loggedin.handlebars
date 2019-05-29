@@ -11,29 +11,29 @@
   <section class="left">
 
     {{!-- SELECTION --}}
-    <ol>
+    <ul>
       {{#each bagel}}
         <li><a href="">{{this.operatorName}}</a>
-          <ol>
+          <ul>
             {{#each this.OpFields}}
               <li><a href="">{{this.fieldName}}</a>
-                <ol>
+                <ul>
                   {{#each this.Leases}}
                   <li><a href="">{{this.leaseName}}</a>
-                      <ol>
+                      <ul>
                         {{#each this.Wells}}
                           <li><a href="">{{this.wellName}}</a></li>
                         {{/each}}
-                      </ol>
+                      </ul>
                   </li>
                   {{/each}}
-                </ol>
+                </ul>
               </li>
             {{/each}}
-            </ol>
+            </ul>
         </li>
       {{/each}}
-    </ol>
+    </ul>
 
     <!-- OPERATOR -->
     <div class="container border rounded reg-form">

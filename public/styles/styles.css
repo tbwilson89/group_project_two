@@ -23,6 +23,18 @@ h1 {
 
 .left, #notify-box, .login-box, .footing { padding: 1.2rem; }
 
+hr {
+  border-color: #45A29E;
+}
+
+a {
+  color: #45A29E;
+}
+
+strong {
+  color: #66FCF1;
+}
+
 /* H E A D E R  &  F O O T E R */
 .header {
   grid-area: header;
@@ -42,6 +54,45 @@ h1 {
 .header-btn {
   margin-right: 1.2rem;
   margin-left: auto;
+}
+
+/* W E L C O M E */
+.grid-container-welcome {
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-template-areas: "header header" "left left" "footer footer";
+  grid-column-gap: 10px;
+}
+
+.logomark-header { 
+  width: 100%; 
+  margin: 2.5rem auto 3.7rem;
+}
+
+.img-header { 
+  width: 100%; 
+  margin: 1.5rem auto;
+}
+
+.container {
+  padding: 0;
+}
+
+/* .welcome-container2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+} */
+
+.welcome-container {
+  background-color: #1F2833;
+  padding: 1.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  letter-spacing: .5px;
 }
 
 /* S I D E B A R */
@@ -100,7 +151,7 @@ h1 {
 @media (max-width: 600px) {
   .grid-container  {
     grid-template-areas: 
-      'header header' 'header right-b' 'right-a right-a' 'left left' 'footer footer';
+      'header header' 'right right' 'left left' 'footer footer';
   }
 }
 
