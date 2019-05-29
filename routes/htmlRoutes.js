@@ -1,6 +1,7 @@
 var db = require("../models");
+var passport = require('passport');
 
-module.exports = function(app) {
+module.exports = function(app, accessProtectionMiddleware) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -57,8 +58,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/loggedin", function(req, res) {
-    res.render("loggedin");
+  app.get("/loggedin", accessProtectionMiddleware, function(req, res) {
+    console.log(req.user)
+    res.render('loggedin')
+  })
+
+  app.get('/logout', function(req,res){
+    req.logout();
+    req.user = null;
+    res.redirect('/')
   })
 
   // Render 404 page for any unmatched routes
