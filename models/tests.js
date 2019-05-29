@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
       testID: DataTypes.INTEGER,
       leaseID: DataTypes.INTEGER,
       wellID: DataTypes.INTEGER,
+      usrID: DataTypes.INTEGER,
       dueDate: DataTypes.DATE,
       createdAt: {
         type: DataTypes.DATE,
@@ -15,6 +16,15 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: sequelize.literal('NOW()')
     }
     });
+
+    Tests.associate = function(models) {
+      Tests.belongsTo(models.Tests, {
+        foreignKey: {
+          name: 'usrID',
+          allowNull: false
+        }
+      });
+    };
 
     Tests.associate = function(models) {
       Tests.belongsTo(models.Wells, {
@@ -32,6 +42,7 @@ module.exports = function(sequelize, DataTypes) {
           }
       });
     };
+
 
     return Tests;
   };

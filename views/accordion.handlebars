@@ -7,13 +7,15 @@
             {{#each this.Wells}}
             {{this.wellName}}<br>
                 {{#each this.Tests}}
-                    {{formatDate this.dueDate day="numeric" month="long" year="numeric"}}<br>
+                    {{chain "has_passed" "formatDate" this.dueDate}}
+                    {{!-- {{formatDate this.dueDate day="numeric" month="long" year="numeric"}}<br> --}}
                     {{this.Filing.filingName}}<br>
                 {{/each}}
             {{/each}}
         {{/each}}
     {{/each}}
 {{/each}}
+
 <br><br>
 
 <div class="testList">

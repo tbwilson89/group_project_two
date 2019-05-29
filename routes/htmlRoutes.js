@@ -4,10 +4,37 @@ var passport = require('passport');
 module.exports = function(app, accessProtectionMiddleware) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Operator.findAll({
+      where: {authID: 1},
+      include: [
+        { 
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                       {
+                         model: db.Filings
+                       }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) { 
+      // res.json(results);
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        bagel: results
       });
     });
   });

@@ -1,4 +1,5 @@
 require("dotenv").config();
+var moment = require('moment');
 var express = require("express");
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -7,6 +8,14 @@ var exphbs = require("express-handlebars");
 var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 HandlebarsIntl.registerWith(Handlebars);
+
+Handlebars.registerHelper("has_passed", function(dateString, opts) {
+  if(moment(dateString).isBefore(moment().add(60, 'days').calendar())){
+    return opts.fn(this)
+  } else {
+    return opts.inverse(this);
+  }
+});
 
 var db = require("./models");
 

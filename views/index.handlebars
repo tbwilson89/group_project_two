@@ -15,6 +15,46 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <!-- <footer class="footer"><p>Footer</p></footer> -->
-</div>
+        <!-- --   **************************************
+        -- 	Assuming an integer for the well types:
+        -- 		   1 - oil producing
+        --         2 - gas producing
+        --         3 - oil inactive
+        --         4 - gas inactive
+        --         5 - injection
+        --   ************************************** -->
+
+            <!-- FILING -->
+            <div class="container border rounded reg-form">
+                FILING
+                <form class="form-inline">
+                    <label for="filing-name" class="mr-sm-2">Filing Name:</label>
+                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="filing-name">
+                    <label for="well-type2" class="mr-sm-2">Well Type:</label>
+                        <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-type2">
+                    <label for="frequency" class="mr-sm-2">Filing Name:</label>
+                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="frequency">
+                    <label for="contact-name" class="mr-sm-2">Contact Name:</label>
+                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="contact-name">
+                    <label for="contact-number" class="mr-sm-2">Contact Number:</label>
+                        <input type="tel" class="form-control-sm mb-2 mr-sm-2" id="contact-number">
+                    <label for="due-date" class="mr-sm-2">Due Date:</label>
+                        <input type="date" class="form-control-sm mb-2 mr-sm-2" id="due-date">
+                    <label for="well-id" class="mr-sm-2">Well ID:</label>
+                        <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-id">
+                    <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
+                </form>
+            </div>
+            <br>
+
+        </section>
+
+        <!-- RIGHT - NOTIFICATIONS -->
+        <section class="slider closed" id="notify-box">
+            <strong>TESTS DUE IN THE NEXT 60 DAYS</strong>
+            <div><i class="fas fa-file-alt testsDue"></i><span> Inspection report due</span></div>
+        </section>
+
+        <!-- FOOTER -->
+        <!-- <footer class="footer"><p>Footer</p></footer> -->
+    </div>
