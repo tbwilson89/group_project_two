@@ -1,13 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app, accessProtectionMiddleware) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
-
   app.get("/api/operator", function(req, res) {
     db.Tests.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -109,10 +102,10 @@ module.exports = function(app, accessProtectionMiddleware) {
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new operator
+  app.post("/api/operators", function(req, res) {
+    db.Operator.create(req.body).then(function(dbOperator) {
+      res.json(dbOperator);
     });
   });
 
