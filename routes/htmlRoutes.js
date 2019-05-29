@@ -3,9 +3,39 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+    db.Operator.findAll({
+      where: {authID: 1},
+      include: [
+        { 
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                       {
+                         model: db.Filings
+                       }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) { 
+      // res.json(results);
       res.render("index", {
-        msg: "Welcome!"
+        bagel: results
       });
+    });
   });
 
   //Load Accordion

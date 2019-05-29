@@ -4,9 +4,10 @@
 html, body {
   background: linear-gradient(rgba(11, 12, 16, .9), rgba(11, 12, 16, .9)), url("../images/oil-well-2.jpg") no-repeat fixed center; 
   background-size: cover;
-  color: #C5C6C7;
+  color: #fff;
   font-family: 'Lato', sans-serif;
   height: 100%;
+  width:100vw;
 }
 
 h1 {

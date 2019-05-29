@@ -1,22 +1,4 @@
-   
-    {{#each bagel}}
-    {{this.operatorName}}<br>
-    {{#each this.OpFields}}
-    {{this.fieldName}}<br>
-        {{#each this.Leases}}
-        {{this.leaseName}}<br>
-            {{#each this.Wells}}
-            {{this.wellName}}<br>
-                {{#each this.Tests}}
-                    {{formatDate this.dueDate day="numeric" month="long" year="numeric"}}<br>
-                    {{this.Filing.filingName}}<br>
-                {{/each}}
-            {{/each}}
-        {{/each}}
-    {{/each}}
-{{/each}}
-
-    <div class="grid-container">
+<div class="grid-container">
 
         <!-- HEADER -->
         <header class="header">
@@ -28,25 +10,33 @@
         <!-- LEFT -->
         <section class="left">
 
-            <nav class="menu">
-        <ol>
-            <li class="menu-item"><a href="#0">Contact Support</a></li>
-            <li class="menu-item"><a href="#0">Operators</a>
-                <ol class="sub-menu">
-                    {{#each bagel}}
-                    <li class="menu-item"><a href="#0">{{this.operatorName}}</a></li>
-                    {{/each}}
-                </ol>
-            </li>
-            <li class="menu-item"><a href="#0">Kabobs</a>
-                <ol class="sub-menu">
-                    <li class="menu-item"><a href="#0">Shishkabobs</a></li>
-                    <li class="menu-item"><a href="#0">BBQ kabobs</a></li>
-                    <li class="menu-item"><a href="#0">Summer kabobs</a></li>
-                </ol>
-            </li>
-        </ol>
-    </nav>
+            <ol>
+                {{#each bagel}}
+                    <li><a href="">{{this.operatorName}}</a>
+                        <ol>
+                            {{#each this.OpFields}}
+                            <li><a href="">{{this.fieldName}}</a>
+                                <ol>
+                                {{#each this.Leases}}
+                                <li><a href="">{{this.leaseName}}</a>
+                                    <ol>
+                                    {{#each this.Wells}}
+                                    <li><a href="">{{this.wellName}}</a></li>
+                                    {{/each}}
+                                    </ol>
+                                </li>
+                                {{/each}}
+                                </ol>
+                            </li>
+                            {{/each}}
+                        </ol>
+                    </li>
+                {{/each}}
+            </ol>
+                                
+                        
+
+
 
             <!-- OPERATOR -->
             <div class="container border rounded reg-form">
@@ -179,10 +169,8 @@
 
         <!-- RIGHT - NOTIFICATIONS -->
         <section class="slider closed" id="notify-box">
-            <strong>NOTIFICATIONS</strong>
-            <div><i class="fas fa-file-alt"></i><span> Inspection report due</span></div>
-            <div><i class="fas fa-file-alt"></i><span> Sample 2</span></div>
-            <div><i class="fas fa-file-alt"></i><span> Sample 3</span></div>
+            <strong>TESTS DUE IN THE NEXT 60 DAYS</strong>
+            <div><i class="fas fa-file-alt testsDue"></i><span> Inspection report due</span></div>
         </section>
 
         <!-- FOOTER -->
@@ -192,4 +180,4 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/js/front-end.js"></script>
+    <script src="/js/front-end.js"></script> 

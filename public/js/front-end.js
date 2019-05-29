@@ -7,3 +7,12 @@ $("#notify-toggle").on("click", function () {
         $("#notify-box").addClass('closed');
     }
 })
+
+var API = {
+    getTests: function(id) {
+      return $.ajax({
+        url: "api/testDue/" + id,
+        type: "GET"
+      });
+    }
+  };

@@ -17,7 +17,7 @@ module.exports = function(app) {
   app.get("/api/testDue/:id", function(req, res) {
     db.Tests.findAll({
       where: {
-        testID: req.params.id
+        userID: req.params.id
       }
     }).then(function(result) {
       res.json(result);
