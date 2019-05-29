@@ -8,18 +8,18 @@
   </header>
   
   <!-- LEFT -->
-  <section class="left">
+  <section class="left container">
 
 
-            <!--ADD MODAL TRIGGERS-->
-        <div class="menu">
-        <div class="label">ADD</div>
-        <div class="spacer"></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
-        <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
-        </div><br><br>
+    <!--ADD MODAL TRIGGERS-->
+    <div class="menu">
+      <div class="label">ADD</div>
+      <div class="spacer"></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
+    </div><br><br>
 
     {{!-- SELECTION --}}
     <ul>
@@ -46,16 +46,57 @@
         </li>
       {{/each}}
     </ul>
+
+    {{!-- <!-- MEMBER -->
+    <div class="container border rounded reg-form">
+        MEMBER
+        <form class="form-inline">
+            <label for="mem-name" class="mr-sm-2">Member Name:</label>
+                <input type="text" class="form-control-sm mb-2 mr-sm-2" id="mem-name">
+            <label for="mem-title" class="mr-sm-2">Member Title:</label>
+                <input type="text" class="form-control-sm mb-2 mr-sm-2" id="mem-title">
+            <label for="op-id" class="mr-sm-2">Operator ID:</label>
+                <input type="number" class="form-control-sm mb-2 mr-sm-2" id="op-id">
+            <button type="submit" class="btn btn-primary mb-2" data-reg="member">Submit</button>
+        </form>
+    </div> --}}
+
+
+    {{!-- <div class="container border rounded reg-form">
+        FILING
+        <form class="form-inline">
+            <label for="filing-name" class="mr-sm-2">Filing Name:</label>
+                <input type="text" class="form-control-sm mb-2 mr-sm-2" id="filing-name">
+            <label for="well-type2" class="mr-sm-2">Well Type:</label>
+                <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-type2">
+            <label for="frequency" class="mr-sm-2">Filing Name:</label>
+                <input type="text" class="form-control-sm mb-2 mr-sm-2" id="frequency">
+            <label for="contact-name" class="mr-sm-2">Contact Name:</label>
+                <input type="text" class="form-control-sm mb-2 mr-sm-2" id="contact-name">
+            <label for="contact-number" class="mr-sm-2">Contact Number:</label>
+                <input type="tel" class="form-control-sm mb-2 mr-sm-2" id="contact-number">
+            <label for="due-date" class="mr-sm-2">Due Date:</label>
+                <input type="date" class="form-control-sm mb-2 mr-sm-2" id="due-date">
+            <label for="well-id" class="mr-sm-2">Well ID:</label>
+                <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-id">
+            <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
+        </form>
+    </div> --}}
+
+
+
   </section>
 
   <!-- RIGHT - NOTIFICATIONS -->
-  <section class="slider closed" id="notify-box">
+  <section id="notify-container">
+    <div class="slider closed" id="notify-box">
       <strong>TEST DUE IN THE NEXT 60 DAYS</strong>
         <hr>
       {{#each bagel}}{{#each this.OpFields}}{{#each this.Leases}}{{#each this.Wells}}{{#each this.Tests}}{{#has_passed this.dueDate}}
       {{../../this.leaseName}}
       <div><i class="fas fa-file-alt"></i><span><a href="test{{this.testID}}"> {{this.Filing.filingName}} - {{formatDate this.dueDate}} </a></span></div><br>
       {{/has_passed}}{{/each}}{{/each}}{{/each}}{{/each}}{{/each}}
+    </div>
   </section>
 
 {{!-- MODALS SECTION --}}

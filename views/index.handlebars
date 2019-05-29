@@ -1,60 +1,43 @@
-<div class="grid-container">
+<div class="grid-container-welcome">
 
   <!-- HEADER -->
   <header class="header">
-      {{!-- <img class="logomark" src="/images/WR_combomark.png"> --}}
       <button class="btn btn-outline-secondary header-btn" id="notify-toggle" disabled><span class="fas fa-bell btn-notifications"></span></button>
       <a href="./auth/google"><button class="btn btn-outline-info">Log In</button></a>
   </header>
   
   <!-- LEFT -->
   <section class="left">
+
     <div class="container">
-      Welcome to <br>
-      <img class="logomark" src="/images/WR_combomark.png">
+      <img class="logomark-header" src="/images/WR_combomark.png">
     </div>
+
+    <div class="container welcome-container">
+      <p>
+        Welcome to <strong>WELL REPORTER</strong>, the secure, personalized management system of petroleum and natural gas well regulatation in accordance
+        with the <a href="https://www.rrc.state.tx.us/">Railroad Commission of Texas</a>.
+      </p>
+
+      <img class="img-header" src="/images/oil-well-1.jpg">
+      
+      <p>
+        Each <strong>WELL REPORTER</strong> account includes access to all necessary operational forms and contracts attached to automatic calendars for 
+        timely administration of energy-producing wells.
+      </p>
+
+      <img class="img-header" src="/images/oil-well-kim_comp.jpg">
+
+      <p>
+        All information is confidential, personalized, and up-to-date in accordance with state regulations.
+      </p>
+      <p>
+        Create an account with <strong>WELL REPORTER</strong>, record your data, and never miss a lease renewal or inspection again!
+      </p>
+    </div>
+
   </section>
 
-        <!-- --   **************************************
-        -- 	Assuming an integer for the well types:
-        -- 		   1 - oil producing
-        --         2 - gas producing
-        --         3 - oil inactive
-        --         4 - gas inactive
-        --         5 - injection
-        --   ************************************** -->
-
-            <!-- FILING -->
-            <div class="container border rounded reg-form">
-                FILING
-                <form class="form-inline">
-                    <label for="filing-name" class="mr-sm-2">Filing Name:</label>
-                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="filing-name">
-                    <label for="well-type2" class="mr-sm-2">Well Type:</label>
-                        <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-type2">
-                    <label for="frequency" class="mr-sm-2">Filing Name:</label>
-                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="frequency">
-                    <label for="contact-name" class="mr-sm-2">Contact Name:</label>
-                        <input type="text" class="form-control-sm mb-2 mr-sm-2" id="contact-name">
-                    <label for="contact-number" class="mr-sm-2">Contact Number:</label>
-                        <input type="tel" class="form-control-sm mb-2 mr-sm-2" id="contact-number">
-                    <label for="due-date" class="mr-sm-2">Due Date:</label>
-                        <input type="date" class="form-control-sm mb-2 mr-sm-2" id="due-date">
-                    <label for="well-id" class="mr-sm-2">Well ID:</label>
-                        <input type="number" class="form-control-sm mb-2 mr-sm-2" id="well-id">
-                    <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
-                </form>
-            </div>
-            <br>
-
-        </section>
-
-        <!-- RIGHT - NOTIFICATIONS -->
-        <section class="slider closed" id="notify-box">
-            <strong>TESTS DUE IN THE NEXT 60 DAYS</strong>
-            <div><i class="fas fa-file-alt testsDue"></i><span> Inspection report due</span></div>
-        </section>
-
-        <!-- FOOTER -->
-        <!-- <footer class="footer"><p>Footer</p></footer> -->
-    </div>
+  <!-- FOOTER -->
+  <!-- <footer class="footer"><p>Footer</p></footer> -->
+</div>

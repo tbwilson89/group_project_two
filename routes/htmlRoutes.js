@@ -1,48 +1,11 @@
 var db = require("../models");
-var passport = require('passport');
+var passport = require("passport");
 
 module.exports = function(app, accessProtectionMiddleware) {
   // Load index page
   app.get("/", function(req, res) {
     db.Operator.findAll({
-      where: {authID: 1},
-      include: [
-        { 
-          model: db.OpField,
-          include: [
-            {
-              model: db.Lease,
-              include: [
-                {
-                  model: db.Wells,
-                  include: [
-                    {
-                      model: db.Tests,
-                      include: [
-                       {
-                         model: db.Filings
-                       }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }).then(function(results) { 
-      // res.json(results);
-      res.render("index", {
-        bagel: results
-      });
-    });
-  });
-
-  //Load Accordion
-  app.get("/accordion", function(req, res) {
-    db.Operator.findAll({
-      where: {authID: 1},
+      where: { authID: 1 },
       include: [
         {
           model: db.OpField,
@@ -56,9 +19,46 @@ module.exports = function(app, accessProtectionMiddleware) {
                     {
                       model: db.Tests,
                       include: [
-                       {
-                         model: db.Filings
-                       }
+                        {
+                          model: db.Filings
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) {
+      // res.json(results);
+      res.render("index", {
+        bagel: results
+      });
+    });
+  });
+
+  //Load Accordion
+  app.get("/accordion", function(req, res) {
+    db.Operator.findAll({
+      where: { authID: 1 },
+      include: [
+        {
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                        {
+                          model: db.Filings
+                        }
                       ]
                     }
                   ]
@@ -78,7 +78,9 @@ module.exports = function(app, accessProtectionMiddleware) {
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.render("example", {
         example: dbExample
       });
@@ -87,7 +89,7 @@ module.exports = function(app, accessProtectionMiddleware) {
 
   app.get("/loggedin", accessProtectionMiddleware, function(req, res) {
     db.Operator.findAll({
-      where: {authID: 1},
+      where: { authID: 1 },
       include: [
         {
           model: db.OpField,
@@ -121,11 +123,11 @@ module.exports = function(app, accessProtectionMiddleware) {
     });
   });
 
-  app.get('/logout', function(req,res){
+  app.get("/logout", function(req, res) {
     req.logout();
     req.user = null;
-    res.redirect('/')
-  })
+    res.redirect("/");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
