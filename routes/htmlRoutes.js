@@ -59,9 +59,40 @@ module.exports = function(app, accessProtectionMiddleware) {
   });
 
   app.get("/loggedin", accessProtectionMiddleware, function(req, res) {
-    console.log(req.user)
-    res.render('loggedin')
-  })
+    db.Operator.findAll({
+      where: {authID: 1},
+      include: [
+        {
+          model: db.OpField,
+          include: [
+            {
+              model: db.Lease,
+              include: [
+                {
+                  model: db.Wells,
+                  include: [
+                    {
+                      model: db.Tests,
+                      include: [
+                        {
+                          model: db.Filings
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }).then(function(results) {
+      // res.json(results);
+      res.render("loggedin", {
+        bagel: results
+      });
+    });
+  });
 
   app.get('/logout', function(req,res){
     req.logout();
