@@ -237,6 +237,14 @@ span { transition: color 0.5s ease; }
   margin: 2rem auto;
 }
 
+.well-tree {
+  font-size: 1.2rem;
+}
+
+.modal-content {
+  background-color: #1F2833;
+}
+
 /* M O B I L E */
 @media (max-width: 600px) {
   .grid-container  {
