@@ -10,10 +10,10 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
           unique: true
       },
-      userPassword: {
-          type: DataTypes.STRING,
-          allowNull: false
-      },
+      // userPassword: {
+      //     type: DataTypes.STRING,
+      //     allowNull: false
+      // },
       googleId: {
         type: DataTypes.STRING,
         allowNull: true

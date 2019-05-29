@@ -1,5 +1,6 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var db = require("../models")
 
 module.exports = function(app) {
 
@@ -14,8 +15,18 @@ module.exports = function(app) {
       console.log(profile)
       console.log(done)
       // return done(null, profile)
-      Users.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return done(err, user);
+      db.Users.findOrCreate({
+        where: {
+          userName: profile.displayName.replace(' ', '.'),
+          email: profile.emails[0].value,
+          googleId: profile.id
+        }
+      }).spread(function (userResult, created) {
+        if(created){
+          return done(null, userResult)
+        } else {
+          return done(null, userResult);
+        }
       });
     }
   ));
@@ -31,7 +42,13 @@ module.exports = function(app) {
   //   redirecting the user to google.com.  After authorization, Google
   //   will redirect the user back to this application at /auth/google/callback
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+    passport.authenticate('google', {
+      scope: [
+        'https://www.googleapis.com/auth/plus.login',
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'
+      ]
+    }));
 
   // GET /auth/google/callback
   //   Use passport.authenticate() as route middleware to authenticate the
