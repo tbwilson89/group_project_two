@@ -29,12 +29,14 @@ module.exports = function(sequelize, DataTypes) {
           defaultValue: sequelize.literal('NOW()')
       }
     });
-
-    // Users.associate = function(models) {
-    //     Users.hasMany(models.Post, {
-    //         onDelete: "cascade"
-    //     });
-    // };
+    Users.associate = function(models) {
+      Users.hasMany(models.Tests, {
+          onDelete: "cascade",
+          foreignKey: {
+              name: 'usrID'
+          }
+      });
+    };
 
     return Users;
   };

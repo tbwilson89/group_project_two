@@ -110,7 +110,7 @@ PRIMARY KEY (id)
 USE rrc_db;
 INSERT INTO USERS (userName, email) VALUES
 ("chuck norris", "momadison@me.com"),
-("jeffrey skilling", "mattomadison@gmail.com");
+("jeffrey skilling", "madison@madisonandwright.com");
 INSERT INTO OPERATORS (operatorName, operatorNumber, operatorAddress, operatorPhone, operatorBirthday, h15rules,  authID) VALUES
 ("Standard Oil", "000001", "123 main st", "8723456785", "1870-1-01", "2019-6-01", 1),
 ("Exxon Mobile", "521182", "2424 west 3rd st", "9034567123", "1999-11-03", "2019-6-01", 2),
@@ -144,19 +144,19 @@ INSERT INTO FILINGS (filingName, wellType, frequency, contactName, contactNumber
 ("W3X", 3, "annually", "p5 department", "5124636772"),
 ("W3X", 4, "annually", "p5 department", "5124636772"),
 ("W10", 1, "annually", "well compliance", "5124636975");
-INSERT INTO TESTS (testID, leaseID, wellID, dueDate) VALUES
-(1,1,1,"2019-6-01"),
-(13,1,1,"2019-6-01"),
-(2,2,2,"2019-6-01"),
-(4,2,2,"2019-6-01"),
-(6,3,3,"2019-6-01"),
-(9,3,3,"2019-6-01"),
-(11,3,4,"2019-6-01"),
-(6,4,4,"2019-6-01"),
-(9,4,5,"2019-6-01"),
-(11,4,5,"2019-6-01"),
-(5,5,1,"2019-6-01"),
-(8,5,1,"2019-6-01"); 
+INSERT INTO TESTS (testID, leaseID, wellID, usrID, dueDate) VALUES
+(1,1,1,1,"2019-6-01"),
+(13,1,1,1,"2019-6-01"),
+(2,2,2,1,"2019-6-01"),
+(4,2,2,1,"2019-6-01"),
+(6,3,3,1,"2019-6-01"),
+(9,3,3,1,"2019-6-01"),
+(11,3,4,1,"2019-6-01"),
+(6,4,4,1,"2019-6-01"),
+(9,4,5,1,"2019-6-01"),
+(11,4,5,1,"2019-6-01"),
+(5,5,1,1,"2019-6-01"),
+(8,5,1,1,"2019-6-01"); 
 
 SELECT * FROM USERS;
 SELECT * FROM OPERATORS;

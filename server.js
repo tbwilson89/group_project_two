@@ -8,6 +8,14 @@ var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 HandlebarsIntl.registerWith(Handlebars);
 
+Handlebars.registerHelper("has_passed", function(dateString) {
+  if(moment(dateString).isAfter(moment().add(60, 'days').calendar())){
+    return false;
+  } else {
+    return true;
+    }
+});
+
 var db = require("./models");
 
 var app = express();
