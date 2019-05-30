@@ -31,13 +31,29 @@ var API = {
   var handleFormSubmit = function(event) {
     event.preventDefault();
 
+      $operatorName = $("#op-name").val().trim();
+      $operatorNumber = $("#op-number").val().trim();
+      $operatorAddress = $("#op-address").val().trim();
+      $operatorPhone = $("#op-phone").val().trim();
+      $operatorBirthday = $("#op-bday").val().trim();
+      $h15Rules = $("h15-rules").val().trim();
+
     var operator = {
-      operatorName: $("#op-name").val().trim(),
-      operatorNumber: $("#op-number").val().trim(),
-      operatorAddress: $("#op-address").val().trim(),
-      operatorPhone: $("#op-phone").val().trim(),
-      operatorBirthday: $("#op-bday").val().trim(),
-      h15Rules: $("h15-rules").val().trim(),
-      authID:   
+      operatorName: $operatorName,
+      operatorNumber: $operatorNumber,
+      operatorAddress: $operatorAddress,
+      operatorPhone: $operatorPhone,
+      operatorBirthday: $operatorBirthday,
+      h15Rules: $h15Rules
     }
+
+    if (!(operator.operatorName && operator.operatorNumber && operator.operatorAddress && operator.operatorPhone && operator.operatorBirthday && operator.h15rules)) {
+      alert("Please fill out the form completely!");
+      return;
+    }
+
+    API.saveOperator(operator).then(function() {
+      
+    })
+
   }
