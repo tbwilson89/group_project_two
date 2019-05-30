@@ -4,48 +4,53 @@
   <header class="header">
       <img class="logomark" src="/images/WR_combomark.png">
       <button class="btn btn-outline-info header-btn" id="notify-toggle"><span class="fas fa-bell btn-notifications"></span></button>
-      <a href="./auth/google"><button class="btn btn-outline-info">Log In</button></a>
+      <a href="./auth/google"><button class="btn btn-outline-info">LOG OUT</button></a>
   </header>
   
   <!-- LEFT -->
   <section class="left container">
 
-
     <!--ADD MODAL TRIGGERS-->
     <div class="menu">
-      <div class="label">ADD</div>
+      <div class="label">
+         <button class="btn btn-info">
+            ADD &nbsp; <i class="far fa-address-card"></i>
+         </button>
+      </div>
       <div class="spacer"></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addOperatorModal">Add Operator</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addFieldModal">Add Field</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addLeaseModal">Add Lease</button></span></div>
-      <div class="item"><span><button type="button" class="addbtn" data-toggle="modal" data-target="#addWellModal">Add Well</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addOperatorModal">Operator</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addFieldModal">Field</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addLeaseModal">Lease</button></span></div>
+      <div class="item"><span><button type="button" class="addbtn btn btn-outline-info" data-toggle="modal" data-target="#addWellModal">Well</button></span></div>
     </div><br><br>
 
     {{!-- SELECTION --}}
-    <ul>
-    <lh><u>WELL TREE</u></lh><br>
-      {{#each bagel}}
-        <li><a href="">{{this.operatorName}}</a>
-          <ul>
-            {{#each this.OpFields}}
-              <li><a href="">{{this.fieldName}}</a>
-                <ul>
-                  {{#each this.Leases}}
-                  <li><a href="">{{this.leaseName}}</a>
-                      <ul>
-                        {{#each this.Wells}}
-                          <li><a href="">{{this.wellName}}</a>
-                        {{/each}}
-                      </ul>
-                  </li>
-                  {{/each}}
-                </ul>
-              </li>
-            {{/each}}
-            </ul>
-        </li>
-      {{/each}}
-    </ul>
+    <div class="well-tree">
+      <ul>
+      <lh><u>WELL TREE</u></lh><br>
+        {{#each bagel}}
+          <li><a href="">{{this.operatorName}}</a>
+            <ul>
+              {{#each this.OpFields}}
+                <li><a href="">{{this.fieldName}}</a>
+                  <ul>
+                    {{#each this.Leases}}
+                    <li><a href="">{{this.leaseName}}</a>
+                        <ul>
+                          {{#each this.Wells}}
+                            <li><a href="">{{this.wellName}}</a>
+                          {{/each}}
+                        </ul>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+              </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
 
     {{!-- <!-- MEMBER -->
     <div class="container border rounded reg-form">
@@ -83,13 +88,16 @@
         </form>
     </div> --}}
 
-
-
   </section>
 
   <!-- RIGHT - NOTIFICATIONS -->
   <section id="notify-container">
     <div class="slider closed" id="notify-box">
+      <div class="notify-reminders">
+        <button class="btn btn-info"><i class="fas fa-mobile-alt"></i></button>
+        <button class="btn btn-info"><i class="far fa-envelope"></i></button>
+      </div>
+        <hr>
       <strong>TEST DUE IN THE NEXT 60 DAYS</strong>
         <hr>
       {{#each bagel}}{{#each this.OpFields}}{{#each this.Leases}}{{#each this.Wells}}{{#each this.Tests}}{{#has_passed this.dueDate}}
@@ -100,6 +108,7 @@
   </section>
 
 {{!-- MODALS SECTION --}}
+
 <!-- Add Operator -->
 <div id="addOperatorModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -107,12 +116,12 @@
         <!--Modal Content -->
         <div class="modal-content">
             <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Operator</h4>
+              <h4 class="modal-title">Add Operator</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
         </div>
       <div class="modal-body">
     <div class="container border rounded reg-form">
-        OPERATOR
         <form class="form-inline">
             <label for="op-name" class="mr-sm-2">Operator Name:</label>
                 <input type="text" class="form-control-sm mb-2 mr-sm-2" id="op-name">
@@ -126,13 +135,11 @@
                 <input type="date" class="form-control-sm mb-2 mr-sm-2" id="op-bday">
             <label for="h15-rules" class="mr-sm-2">H15 Rules:</label>
                 <input type="date" class="form-control-sm mb-2 mr-sm-2" id="h15-rules">
-            <button type="submit" class="btn btn-primary mb-2" id="submit-btn" data-reg="operator">Submit</button>
+            <button type="submit" class="btn btn-info mb-2" id="submit-btn" data-reg="operator">Submit</button>
         </form>
     </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -144,12 +151,12 @@
         <!--Modal Content -->
         <div class="modal-content">
             <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Field</h4>
+              <h4 class="modal-title">Add Field</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
         </div>
       <div class="modal-body">
     <div class="container border rounded reg-form">
-        FIELD
         <form class="form-inline">
             <label for="field-name" class="mr-sm-2">Field Name:</label>
                 <input type="text" class="form-control-sm mb-2 mr-sm-2" id="field-name">
@@ -159,13 +166,10 @@
                 <input type="date" class="form-control-sm mb-2 mr-sm-2" id="op-id">
             <label for="op-id2" class="mr-sm-2">Operator ID:</label>
                 <input type="number" class="form-control-sm mb-2 mr-sm-2" id="op-id2">
-            <button type="submit" class="btn btn-primary mb-2" data-reg="field">Submit</button>
+            <button type="submit" class="btn btn-info mb-2" data-reg="field">Submit</button>
         </form>
     </div>
     </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
@@ -177,12 +181,12 @@
         <!--Modal Content -->
         <div class="modal-content">
             <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Lease</h4>
+              <h4 class="modal-title">Add Lease</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
         </div>
       <div class="modal-body">
           <div class="container border rounded reg-form">
-        LEASE
         <form class="form-inline">
             <label for="dist-number" class="mr-sm-2">District Number:</label>
                 <input type="number" class="form-control-sm mb-2 mr-sm-2" id="dist-number">
@@ -194,12 +198,9 @@
                 <input type="number" class="form-control-sm mb-2 mr-sm-2" id="lease-number">
             <label for="field-id" class="mr-sm-2">Field ID:</label>
                 <input type="number" class="form-control-sm mb-2 mr-sm-2" id="field-id">
-            <button type="submit" class="btn btn-primary mb-2" data-reg="lease">Submit</button>
+            <button type="submit" class="btn btn-info mb-2" data-reg="lease">Submit</button>
         </form>
     </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -212,12 +213,11 @@
         <!--Modal Content -->
         <div class="modal-content">
             <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Well</h4>
+              <h4 class="modal-title">Add Well</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
       <div class="modal-body">
           <div class="container border rounded reg-form">
-        WELL
         <form class="form-inline">
             <label for="well-name" class="mr-sm-2">Well Name:</label>
                 <input type="text" class="form-control-sm mb-2 mr-sm-2" id="well-name">
@@ -233,20 +233,13 @@
                 <input type="date" class="form-control-sm mb-2 mr-sm-2" id="h10-rules">
             <label for="lease-id" class="mr-sm-2">Lease ID:</label>
                 <input type="number" class="form-control-sm mb-2 mr-sm-2" id="lease-id">
-            <button type="submit" class="btn btn-primary mb-2" data-reg="well">Submit</button>
+            <button type="submit" class="btn btn-info mb-2" data-reg="well">Submit</button>
         </form>
     </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
   <!-- FOOTER -->
   <!-- <footer class="footer"><p>Footer</p></footer> -->

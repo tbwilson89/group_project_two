@@ -4,10 +4,10 @@
 html, body {
   background: linear-gradient(rgba(11, 12, 16, .9), rgba(11, 12, 16, .9)), url("../images/oil-well-2.jpg") no-repeat fixed center; 
   background-size: cover;
-  color: #fff;
+  color: #C5C6C7;
   font-family: 'Lato', sans-serif;
   height: 100%;
-  width:100vw;
+  /* width:100vw; */
 }
 
 h1 {
@@ -111,6 +111,12 @@ p {
   z-index: 0;
 }
 
+.notify-reminders {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .slider {
   overflow-y: scroll;
   height:100%;
@@ -149,6 +155,8 @@ p {
   display: inline-block;
   cursor: pointer;
   pointer-events: none;
+  font-size: 1.5rem;
+  margin: 2.5rem auto;
 }
 .menu:hover { pointer-events: all; }
 
@@ -227,6 +235,14 @@ span { transition: color 0.5s ease; }
   background-color: #0B0C10;
   padding: 1rem;
   margin: 2rem auto;
+}
+
+.well-tree {
+  font-size: 1.2rem;
+}
+
+.modal-content {
+  background-color: #1F2833;
 }
 
 /* M O B I L E */
