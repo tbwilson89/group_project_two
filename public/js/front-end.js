@@ -1,3 +1,6 @@
+$(document).ready(function() {
+
+
 $("#notify-toggle").on("click", function () {
     if ($("#notify-box").hasClass("closed")) {
         $("#notify-box").removeClass('closed');
@@ -27,33 +30,38 @@ var API = {
     }
   };
 
-  //handle form submission
-  var handleFormSubmit = function(event) {
+  $("#op-btn").on("click", handleOperatorFormSubmit);
+  
+  //handle operator modal form submission
+  function handleOperatorFormSubmit(event) {
+
     event.preventDefault();
+    $operatorName = $("#op-name").val().trim();
+    $operatorNumber = $("#op-number").val().trim();
+    $operatorAddress = $("#op-address").val().trim();
+    $operatorPhone = $("#op-phone").val().trim();
+    $operatorBirthday = $("#op-bday").val();
+    $h15Rules = $("#h15-rules").val();
 
-      $operatorName = $("#op-name").val().trim();
-      $operatorNumber = $("#op-number").val().trim();
-      $operatorAddress = $("#op-address").val().trim();
-      $operatorPhone = $("#op-phone").val().trim();
-      $operatorBirthday = $("#op-bday").val().trim();
-      $h15Rules = $("h15-rules").val().trim();
-
-    var operator = {
-      operatorName: $operatorName,
-      operatorNumber: $operatorNumber,
-      operatorAddress: $operatorAddress,
-      operatorPhone: $operatorPhone,
-      operatorBirthday: $operatorBirthday,
-      h15Rules: $h15Rules
-    }
-
-    if (!(operator.operatorName && operator.operatorNumber && operator.operatorAddress && operator.operatorPhone && operator.operatorBirthday && operator.h15rules)) {
-      alert("Please fill out the form completely!");
-      return;
-    }
-
-    API.saveOperator(operator).then(function() {
-      
-    })
-
+  var operator = {
+    operatorName: $operatorName,
+    operatorNumber: $operatorNumber,
+    operatorAddress: $operatorAddress,
+    operatorPhone: $operatorPhone,
+    operatorBirthday: $operatorBirthday,
+    h15Rules: $h15Rules
   }
+
+  if (!(operator.operatorName && operator.operatorNumber && operator.operatorAddress && operator.operatorPhone && operator.operatorBirthday && operator.h15Rules)) {
+    alert("Please fill out the form completely!");
+    return;
+  }
+
+  API.saveOperator(operator).then(function() {
+  })
+  
+  location.reload();
+      
+}
+})
+

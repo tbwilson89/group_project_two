@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require('passport');
 
 module.exports = function(app, accessProtectionMiddleware) {
   app.get("/api/operator", function(req, res) {
@@ -103,10 +104,15 @@ module.exports = function(app, accessProtectionMiddleware) {
   });
 
   // Create a new operator
-  app.post("/api/operators", function(req, res) {
+  app.post("/api/operators", accessProtectionMiddleware, function(req, res) {
+    console.log('user', req.user);
+    req.body = {...req.body,...{authID: req.user}};
     db.Operator.create(req.body).then(function(dbOperator) {
       res.json(dbOperator);
-    });
+    })
+    .catch(function(err) {
+      console.log(err, req.body);
+    })
   });
 
   // Delete an example by id

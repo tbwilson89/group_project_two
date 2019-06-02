@@ -112,15 +112,15 @@ INSERT INTO USERS (userName, email) VALUES
 ("chuck norris", "momadison@me.com"),
 ("jeffrey skilling", "madison@madisonandwright.com");
 INSERT INTO OPERATORS (operatorName, operatorNumber, operatorAddress, operatorPhone, operatorBirthday, h15rules,  authID) VALUES
-("Standard Oil", "000001", "123 main st", "8723456785", "1870-1-01", "2019-6-01", 1),
-("Exxon Mobile", "521182", "2424 west 3rd st", "9034567123", "1999-11-03", "2019-6-01", 2),
+("Standard Oil", "000001", "123 main st", "8723456785", "1870-1-01", "2019-6-01", 3),
+("Exxon Mobile", "521182", "2424 west 3rd st", "9034567123", "1999-11-03", "2019-6-01", 3),
 ("Basic Oil", "420231", "123 main st", "8723456785", "1870-1-01", "2019-6-01", 1);
 INSERT INTO MEMBERS (memberName, memberTitle, operatorID) VALUES
 ("chuck norris", "president", 1),
 ("jeffrey skilling", "coo", 2);
 INSERT INTO OPFIELDS (fieldName, fieldNumber, fieldRules, operatorID) VALUES
 ("tunstill east (delaware)","91818500", "2019-06-01", 1),
-("turner gregory  (clear fork)","91903333", "2019-03-01", 3); 
+("turner gregory  (clear fork)","91903333", "2019-03-01", 2); 
 INSERT INTO LEASES (districtNumber, countyName, leaseName, leaseNumber, fieldID) VALUES
 ("8", "loving", "tunstill unit","36550", 1),
 ("8", "mitchell", "turner gregory unit","36961", 2); 
