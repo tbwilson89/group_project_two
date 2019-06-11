@@ -4,8 +4,9 @@ var passport = require("passport");
 module.exports = function(app, accessProtectionMiddleware) {
   // Load index page
   app.get("/", function(req, res) {
+    console.log('user', req.user);
     db.Operator.findAll({
-      where: { authID: 1 },
+      where: { authID: req.user },
       include: [
         {
           model: db.OpField,
@@ -42,7 +43,7 @@ module.exports = function(app, accessProtectionMiddleware) {
   //Load Accordion
   app.get("/accordion", function(req, res) {
     db.Operator.findAll({
-      where: { authID: 1 },
+      where: { authID: req.user },
       include: [
         {
           model: db.OpField,
@@ -89,7 +90,7 @@ module.exports = function(app, accessProtectionMiddleware) {
 
   app.get("/loggedin", accessProtectionMiddleware, function(req, res) {
     db.Operator.findAll({
-      where: { authID: 1 },
+      where: { authID: req.user },
       include: [
         {
           model: db.OpField,
